@@ -6,7 +6,7 @@ function mousePressed(){
 }
 
 function setup() { 
-  createCanvas(windowWidth, 400);
+  createCanvas(windowWidth, windowHeight);
 
   repellant = new Attractor();
 //   particleSystems[0] = new ParticleSystem(width/2, 50);
@@ -34,12 +34,14 @@ function draw() {
 //     { particles.splice(i,1); }
   particleSystems.forEach(ps=>{  
     ps.particles.forEach(p=>{
-      attractionBehaviour(repellant,p,-1);
+      // attractionBehaviour(repellant,p,-1);
+      attractionBehaviour(repellant,p);
       gravityBehaviour(p);
     });
     ps.emit(1);
     ps.update();
     ps.display();
   });
+  repellant.reposition();
   repellant.display();
 }

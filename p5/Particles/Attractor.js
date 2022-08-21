@@ -7,6 +7,8 @@ class Attractor {
     this.mass = 20;
     this.G = 1;
   }
+
+  reposition = () => this.location = new createVector(width/2,height/2);
   
    display() {
     stroke(0);
