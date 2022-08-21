@@ -15,7 +15,7 @@ function setup() {
 
 function draw() {
   background(100);
-  createCanvas(windowWidth, 400);
+  createCanvas(windowWidth, windowHeight);
   
   //   for(let i =0; i<5; i++) {
   //   particles.push (
