@@ -78,19 +78,19 @@ class Mover{
   
   checkEdges() {
     if (this.location.x > width) {
-      this.location.x = width;
-      this.velocity.x *= -1;
+      this.location.x = 0;
+      // this.velocity.x *= -1;
       } else if (this.location.x < 0) {
-        this.velocity.x *= -1;
-        this.location.x = 0;
+        this.location.x = width;
+        // this.velocity.x *= -1;
       }
 
     if (this.location.y > height) {
-      this.velocity.y *= -1;
-      this.location.y = height;
-    }  else if (this.location.y < 0) {
-      this.velocity.y *= -1;
       this.location.y = 0;
+      // this.velocity.y *= -1;
+    }  else if (this.location.y < 0) {
+      this.location.y = height;
+      // this.velocity.y *= -1;
     }
   }
 }
