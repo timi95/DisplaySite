@@ -7,7 +7,7 @@ class Oscillator {
         random(-0.05,0.05),random(-0.05,0.05));
       
       this.amplitude = new createVector(
-        random(width/2),random(height/2));
+        random(windowWidth*0.65),random(windowHeight*0.65));
         this.color = {
             r: random(255),
             g:random(255),
