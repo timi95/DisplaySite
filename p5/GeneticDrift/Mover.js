@@ -1,7 +1,7 @@
 class Mover{
   //2.2 goals implement applyForce(); implement forces like wind, and gravity
   
-  constructor(mass,location, color){
+  constructor(mass,location, colour){
 
 
     //start location in the center of the screen
@@ -21,8 +21,9 @@ class Mover{
     this.aAcceleration = 0;//this.acceleration.x/1000;
     this.r = sqrt(this.mass) * 2;
     
-    this.colors =['red','green', 'blue', 'yellow','purple','black','white'] 
-    this.chosenColor = color? color: this.colors[floor(random(0,7))];
+
+    this.chosenColor = colour?colour:
+    color(random(255),random(255),random(255));
     
   }
   
@@ -32,9 +33,7 @@ class Mover{
     this.velocity.limit(this.topSpeed)
     this.location.add(this.velocity);
 
-    //static function returns a p5 vector object
-    //p5.Vector.add(this.velocity, this.acceleration);
-
+    
     this.aVelocity += this.aAcceleration; //Newfangled angular motion
     this.angle += this.aVelocity;
     
@@ -50,13 +49,6 @@ class Mover{
   display(){
     stroke(10);
       fill(this.chosenColor);
-    // fill(175);
-     /*ellipse(
-       this.location.x,this.location.y,
-      1.6*this.mass, 1.6*this.mass);*/
-    // rectMode(CENTER);
-    // rect(0,0,this.mass*2,this.mass*2);
-    
     
     // pushMatrix() and popMatrix() are
     // necessary so that the rotation of this shape
@@ -123,7 +115,6 @@ class Mover{
   }
   
   moving(){
-    // if(floor(random(1000000))%2==0){this.decay();}
     if(this.isDead()===false){   
       this.update();
       this.checkEdges();
@@ -136,8 +127,9 @@ class Mover{
     for(let i = 0; i < floor(random(0,4)); i++){
       let baby = new Mover(
           this.mass, 
-          createVector(random(0, this.location.x), random(0,this.location.y)), 
+          createVector(this.location.x, this.location.y), 
           this.chosenColor);
+      baby.angle = random(-1,1)
       baby.health = floor(random(10,100));
       litter.push(
         baby
