@@ -9,9 +9,10 @@ let oscillators=[];
 let waves=[];
 let attractor;
 let r=4//150;
+let debug = false;
 
 function setup() { 
-    for(let i=0; i< 5; i++) {
+    for(let i=0; i< 15; i++) {
     movers.push (
       new Mover(
       random(0.1, largestSize), 
@@ -23,10 +24,11 @@ function setup() {
       
      movers.forEach(mover=>{ 
        mover.decay()
-      if(mover.isPregnant()){
-        movers.push(...mover.birth())
-      }
-     
+       if(floor(random(1,20)) == 1)
+         {movers.push(...mover.birth())}
+       if(mover.isFertile()){
+         movers.push(...mover.mating(movers))                  
+       }
      })
   },
     500
@@ -39,7 +41,17 @@ function draw() {
     
    movers.forEach(mover=>{ 
     mover.moving()
-   });  
+   });
+  
+  //cull population randomly after population limit
+  if(movers.length >69){
+   movers.splice(floor(random(0,movers.length)), 1)
+  }
+  
+}
+
+function mousePressed() {
+  debug = !debug;
 }
 
 
