@@ -24,7 +24,7 @@ function setup() {
       
      movers.forEach(mover=>{ 
        mover.decay()
-       if(floor(random(1,20)) == 1)
+       if(floor(random(1,100)) == 69)
          {movers.push(...mover.birth())}
        if(mover.isFertile()){
          movers.push(...mover.mating(movers))                  
