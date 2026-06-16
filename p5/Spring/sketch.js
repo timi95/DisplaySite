@@ -18,6 +18,8 @@ function setup() {
 function draw() {
   createCanvas(windowWidth, windowHeight);
   anchor.x =windowWidth/2;
+  anchor.y =windowHeight/2;
+
   background(112, 50, 126);
   stroke(255)
   strokeWeight(5);
