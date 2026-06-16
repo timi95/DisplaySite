@@ -7,7 +7,7 @@ let restLength = 100;
 let k = 0.01;
 let velocity = 0;
 function setup() { 
-  createCanvas(windowWidth, 400)
+  createCanvas(windowWidth, windowHeight)
   
   anchor = createVector(windowWidth/2, 5);
   bob = createVector(windowWidth/2+150,300);
@@ -16,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-  createCanvas(windowWidth, 400);
+  createCanvas(windowWidth, windowHeight);
   anchor.x =windowWidth/2;
   background(112, 50, 126);
   stroke(255)
