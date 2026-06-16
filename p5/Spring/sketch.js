@@ -6,6 +6,8 @@ let y = 300;
 let restLength = 100;
 let k = 0.01;
 let velocity = 0;
+
+let windowOffset = 5;  
 function setup() { 
   createCanvas(windowWidth, windowHeight)
   
@@ -16,9 +18,10 @@ function setup() {
 }
 
 function draw() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas((windowWidth) - windowOffset, (windowHeight) - windowOffset);
   anchor.x =windowWidth/2;
   anchor.y =windowHeight/2;
+
 
   background(112, 50, 126);
   stroke(255)
